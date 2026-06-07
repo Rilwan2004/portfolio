@@ -45,7 +45,7 @@ export default function ParticleBackground() {
         particles: {
           number: {
             value: 300,
-            density: { enable: true, area: 900 },
+            density: { enable: true, width: 900 },
           },
           color: { value: dotColor },
           opacity: {
