@@ -53,7 +53,7 @@ export default function ParticleBackground() {
             animation: {
               enable: true,
               speed: 0.6,
-              minimumValue: isDark ? 0.04 : 0.02,
+             
               sync: false, // each dot pulses independently
             },
           },
