@@ -1,26 +1,99 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ─── Light mode CSS variables ─── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-primary:     #f8fafc;
+  --bg-card:        rgba(0, 0, 0, 0.04);
+  --bg-card-border: rgba(0, 0, 0, 0.1);
+  --text-primary:   #0f172a;
+  --text-muted:     #475569;
+  --text-accent:    #3881ff;
+  --accent:         #3881ff;
+  --accent-glow:    rgba(15, 41, 172, 0.15);
+  --stat-number:    #3881ff;
+  --nav-bg:         rgba(248, 250, 252, 0.20);
+  --nav-tray:       rgba(0, 0, 0, 0.06);
+  --nav-border:     rgba(0, 0, 0, 0.08);
+  --nav-active-bg:  rgba(255, 255, 255, 0.95);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ─── Dark mode CSS variables ─── */
+html.dark {
+  --bg-primary:     #0a0e1a;
+  --bg-card:        rgba(255, 255, 255, 0.04);
+  --bg-card-border: rgba(255, 255, 255, 0.08);
+  --text-primary:   #f1f5f9;
+  --text-muted:     #94a3b8;
+  --text-accent:    #3881ff;
+  --accent:         #3881ff;
+  --accent-glow:    rgb(73, 103, 255);
+  --stat-number:    #3881ff;
+  --nav-bg:         rgba(0, 0, 0, 0.20);
+  --nav-tray:       rgba(255, 255, 255, 0.06);
+  --nav-border:     rgba(255, 255, 255, 0.08);
+  --nav-active-bg:  rgba(255, 255, 255, 0.1);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  padding-top: 100px;
+  padding-bottom: 280px;
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  transition: color 0.3s ease;
+  position: relative;
+  z-index: 1;
 }
+
+/* ─── Responsive main content ─── */
+.main-content {
+  position: relative;
+  z-index: 1;
+  max-width: 960px;
+  margin: 0 auto;
+  padding-left: 80px;
+  padding-right: 120px;
+}
+
+@media (max-width: 1024px) {
+  .main-content {
+    padding-left: 48px;
+    padding-right: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 70px;
+    padding-bottom: 0;
+  }
+  .main-content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* ─── Marquee animations ─── */
+@keyframes scroll-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes scroll-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar       { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 99px; }
+html.dark ::-webkit-scrollbar-thumb { background: #1e293b; }
