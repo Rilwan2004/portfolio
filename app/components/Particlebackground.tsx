@@ -49,13 +49,13 @@ export default function ParticleBackground() {
           },
           color: { value: dotColor },
           opacity: {
-            value: dotOpacity,
-            animation: {
-              enable: true,
-              speed: 0.6,
-             
-              sync: false, // each dot pulses independently
+              value: isDark ? 0.12 : 0.08,
+    animation: {
+      enable: true,
+      speed: 0.6,
+      sync: false,
             },
+            
           },
           size: {
             value: { min: 1, max: 2 }, // tiny — not distracting
